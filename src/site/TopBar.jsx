@@ -1,10 +1,18 @@
 export default function TopBar({ mode, onToggleMode }) {
   return (
     <header className="topbar">
-      <div className="topbar-brand">
-        <span className="topbar-word">ROTTERDAM DOCKERS</span>
-        <span className="topbar-sub mono">ETPL · 2026 · MAASHAVEN</span>
-      </div>
+      <a
+        className="topbar-brand"
+        href="#home"
+        aria-label="Rotterdam Dockers — home"
+        onClick={(e) => { e.preventDefault(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }) }}
+      >
+        <img className="topbar-crest" src={`${import.meta.env.BASE_URL}crest.jpg`} alt="" width="40" height="40" />
+        <span className="topbar-lockup">
+          <span className="topbar-word">ROTTERDAM DOCKERS</span>
+          <span className="topbar-sub mono">ETPL · 2026 · MAASHAVEN</span>
+        </span>
+      </a>
 
       {/* sponsor lockup — placeholder marks until partners are announced */}
       <div className="sponsor-lockup" aria-label="Club partners">

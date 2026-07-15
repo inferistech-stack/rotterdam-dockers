@@ -251,6 +251,7 @@ function TierCard({ t, index }) {
 function Footer() {
   return (
     <footer className="footer-ed">
+      <img className="footer-crest" src={`${import.meta.env.BASE_URL}crest.jpg`} alt="Rotterdam Dockers crest" width="104" height="104" />
       <div className="footer-word" aria-hidden="true">DOCKERS</div>
       <div className="footer-meta mono">
         <span>51.8951° N · 4.4830° E — MAASHAVEN, ROTTERDAM</span>

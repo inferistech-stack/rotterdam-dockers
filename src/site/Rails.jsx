@@ -60,12 +60,6 @@ export function LeftRail() {
   const active = useActiveSection()
   return (
     <nav className="rail rail-left" aria-label="Sections">
-      <a className="rail-logo" href="#home" onClick={(e) => { e.preventDefault(); jump('home') }} aria-label="Rotterdam Dockers home">
-        <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
-          <path d="M16 5v15M16 20c-3.4 0-5.6-2.2-5.6-5.6M16 20c3.4 0 5.6-2.2 5.6-5.6M10 9.5h12" stroke="var(--sodium-amber)" strokeWidth="2.3" strokeLinecap="round" fill="none" />
-          <circle cx="16" cy="3" r="1.9" fill="var(--sodium-amber)" />
-        </svg>
-      </a>
       <ul className="rail-items">
         {NAV.map((n) => (
           <li key={n.id}>

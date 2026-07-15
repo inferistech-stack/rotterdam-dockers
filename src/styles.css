@@ -114,6 +114,13 @@ img, svg { display: block; }
   gap: 14px; background: var(--tar-black); color: var(--flood-white);
 }
 .splash-mark { color: var(--sodium-amber); }
+.splash-crest {
+  width: 112px; height: 112px; border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgb(233 162 74 / 0.35), 0 14px 44px rgb(0 0 0 / 0.5);
+  animation: crest-in 0.7s var(--ease-dock) both;
+}
+@keyframes crest-in { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: none; } }
 .splash-word {
   font-weight: 850; font-stretch: 118%;
   letter-spacing: 0.14em; font-size: clamp(18px, 3vw, 26px);
@@ -136,7 +143,15 @@ img, svg { display: block; }
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
 }
-.topbar-brand { line-height: 1.15; }
+.topbar-brand { display: flex; align-items: center; gap: 12px; line-height: 1.15; text-decoration: none; }
+.topbar-crest {
+  width: 40px; height: 40px; border-radius: 50%;
+  object-fit: cover; flex: none;
+  box-shadow: 0 0 0 1px rgb(233 162 74 / 0.32);
+  transition: transform 0.25s var(--ease-dock);
+}
+.topbar-brand:hover .topbar-crest { transform: scale(1.06); }
+.topbar-lockup { display: flex; flex-direction: column; }
 .topbar-word {
   display: block;
   font-weight: 870; font-stretch: 118%;
@@ -183,7 +198,6 @@ img, svg { display: block; }
 .rail-right { right: 14px; justify-content: center; pointer-events: none; }
 .rail-right .rail-items { pointer-events: auto; }
 
-.rail-logo { display: grid; place-items: center; width: 44px; height: 44px; }
 .rail-items {
   list-style: none; padding: 0; margin: auto 0;
   display: flex; flex-direction: column; gap: 6px;
@@ -604,6 +618,12 @@ html[data-mode='night'] .sent-note { color: #7fd6a4; }
   border-top: 1px solid var(--line);
   overflow: hidden;
 }
+.footer-crest {
+  width: 104px; height: 104px; border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgb(233 162 74 / 0.3), 0 12px 40px rgb(0 0 0 / 0.3);
+  margin-bottom: 26px;
+}
 .footer-word {
   font-weight: 900; font-stretch: 125%;
   font-size: clamp(72px, 15vw, 240px);
@@ -638,11 +658,11 @@ html[data-mode='night'] .sent-note { color: #7fd6a4; }
     padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
     border-right: none; border-top: 1px solid var(--line);
   }
-  .rail-left .rail-logo { display: none; }
   .rail-items { flex-direction: row; margin: 0; gap: 4px; }
   .rail-tip { display: none; }
   .rail-right { display: none; }
   .topbar { padding-left: 16px; }
+  .topbar-crest { width: 34px; height: 34px; }
   .page { padding-left: 0; padding-bottom: 68px; }
   .footer-ed { padding-left: clamp(20px, 4vw, 56px); padding-bottom: 90px; }
   .hero-plate { inset: 8px 8px 56px 8px; }
