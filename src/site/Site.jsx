@@ -17,15 +17,18 @@ function Hero() {
   return (
     <section className="hero-ed" id="home" aria-label="Rotterdam Dockers">
       <div className="hero-plate" ref={plateRef}>
-        <img
+        <video
           className="hero-img"
-          src={`${import.meta.env.BASE_URL}hero-rotterdam.jpg`}
-          srcSet={`${import.meta.env.BASE_URL}hero-rotterdam-sm.jpg 1100w, ${import.meta.env.BASE_URL}hero-rotterdam.jpg 1962w`}
-          sizes="100vw"
-          alt="The Erasmus Bridge and the Rotterdam skyline at night over the river Maas"
-          fetchpriority="high"
-          decoding="async"
-        />
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={`${import.meta.env.BASE_URL}hero-rotterdam.jpg`}
+          aria-label="The Erasmus Bridge and the Rotterdam skyline at night over the river Maas"
+        >
+          <source src={`${import.meta.env.BASE_URL}hero-rotterdam.webm`} type="video/webm" />
+          <source src={`${import.meta.env.BASE_URL}hero-rotterdam.mp4`} type="video/mp4" />
+        </video>
         <div className="hero-scrim" />
       </div>
       <div className="hero-content">
