@@ -7,6 +7,10 @@ import { useReveal, useParallax } from './useReveal'
 
 const NEXT = FIXTURES.find((f) => f.score.includes('NEXT'))
 
+const REDUCED_MOTION =
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 function Kicker({ children }) {
   return <p className="kicker mono">{children}</p>
 }
@@ -17,18 +21,27 @@ function Hero() {
   return (
     <section className="hero-ed" id="home" aria-label="Rotterdam Dockers">
       <div className="hero-plate" ref={plateRef}>
-        <video
-          className="hero-img"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={`${import.meta.env.BASE_URL}hero-rotterdam.jpg`}
-          aria-label="The Erasmus Bridge and the Rotterdam skyline at night over the river Maas"
-        >
-          <source src={`${import.meta.env.BASE_URL}hero-rotterdam.webm`} type="video/webm" />
-          <source src={`${import.meta.env.BASE_URL}hero-rotterdam.mp4`} type="video/mp4" />
-        </video>
+        {REDUCED_MOTION ? (
+          <img
+            className="hero-img"
+            src={`${import.meta.env.BASE_URL}hero-rotterdam.jpg`}
+            alt="The Erasmus Bridge and the Rotterdam skyline at night over the river Maas"
+            fetchpriority="high"
+            decoding="async"
+          />
+        ) : (
+          <video
+            className="hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={`${import.meta.env.BASE_URL}hero-rotterdam.jpg`}
+            aria-label="The Erasmus Bridge and the Rotterdam skyline at night over the river Maas"
+          >
+            <source src={`${import.meta.env.BASE_URL}video/loop_final.mp4`} type="video/mp4" />
+          </video>
+        )}
         <div className="hero-scrim" />
       </div>
       <div className="hero-content">
